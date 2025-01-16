@@ -62,14 +62,16 @@
       ;; original e57300
       (errors  "#d93d3d")
       (function-link "#2bab63")
-      (link-link"#d2991d")             ; `link-link'
-      (type-link "#2dbfb8")
-      (stab-background "#314559")        ; for nightly
+      (link-link"#d2991d")              ; `link-link'
+      (setting-input "#2196f3")
+      (side-bar "#505050")
+      (side-bar-link "#fdbf35")
+      (stab-background "#314559")       ; for nightly
       (target-backgournd "#494a3d")
       (text-main "#dddddd")
       (trait-link "#b78cf2")
-      (warning "#ff9124")
-      )
+      (type-link "#2dbfb8")
+      (warning "#ff9124"))
 
   (custom-theme-set-faces
    'rustdoc-dark
@@ -80,8 +82,8 @@
    `(default ((t (:foreground ,syntax-foreground :background ,syntax-background))))
    `(fringe ((t (:background nil :foreground ,text-background))))
    `(vertical-border ((t (:foreground ,text-background))))
-   `(link ((t (:foreground ,link-link :underline t))))
-   `(link-visited ((t (:foreground ,link-link :underline t))))
+   `(link ((t (:foreground ,link-link :background nil :underline t))))
+   `(link-visited ((t (:foreground ,link-link :background nil :underline t))))
    `(match ((t (:background ,text-background :foreground ,link-link))))
    `(minibuffer-prompt ((t (:foreground ,link-link))))
    `(region ((t (:background ,target-backgournd :foreground nil))))
@@ -113,6 +115,11 @@
    `(font-latex-slide-title-face ((t ())))
    `(font-latex-string-face ((t (:foreground ,syntax-string))))
    `(font-latex-warning-face ((t (:foreground ,warning))))
+   `(font-latex-sectioning-1-face ((t (:inherit default))))
+   `(font-latex-sectioning-2-face ((t (:inherit default))))
+   `(font-latex-sectioning-3-face ((t (:inherit default))))
+   `(font-latex-sectioning-4-face ((t (:inherit default))))
+   `(font-latex-sectioning-5-face ((t (:inherit default))))
 
    ;; Compilation
    `(compilation-info ((t (:foreground ,type-link))))
@@ -164,17 +171,15 @@
    ;;     (:underline (:style wave :color ,gruber-darker-yellow) :inherit unspecified))
    ;;    (t (:foreground ,gruber-darker-yellow :weight bold :underline t))))
 
-   ;; Highlight Defined
+   ;; Highlights
+   `(highlight ((t (:background ,side-bar :foreground ,syntax-foreground))))
+   `(highlight-current-line-face ((t (:inherit highlight))))
    `(highlight-defined-function-name-face ((t (:inherit font-lock-builtin-face))))
 
    ;; Info
    `(info-xref ((t (:foreground ,link-link))))
    `(info-visited ((t (:foreground ,link-link))))
 
-   ;; Line Highlighting
-   ;; `(highlight ((t (:background ,text-backgroud :foreground ,line-number))))
-   ;; `(highlight-current-line-face ((t (:background ,text-backgroud
-   ;;                                    :foreground line-number-highlighted))))
 
    ;; line numbers
    `(line-number ((t (:inherit default :foreground ,line-number))))
@@ -182,6 +187,7 @@
 
    ;; Magit
    `(magit-branch ((t (:foreground ,link-link))))
+   `(magit-branch-remote ((t (:foreground ,type-link))))
    `(magit-diff-hunk-header ((t (:background ,text-background))))
    `(magit-diff-file-header ((t (:background ,text-background))))
    `(magit-section-highlight ((t (:background ,stab-background :forground ,text-main))))
@@ -214,11 +220,13 @@
    `(meow-beacon-cursor ((t (:background ,link-link))))
    `(meow-keypad-cursor ((t (:background ,link-link))))
    `(meow-normal-cursor ((t (:background ,link-link))))
+   `(meow-search-highlight ((t (:background ,stab-background))))
+   `(meow-search-indicator ((t (:foreground ,setting-input))))
 
    ;; Mode Line
    `(mode-line ((t (:background ,stab-background :foreground ,text-main))))
-   `(mode-line-inactive ((t (:background ,text-background
-                             :foreground ,syntax-comment))))
+   `(mode-line-inactive ((t ( :background ,text-background
+                              :foreground ,syntax-comment))))
 
    ;; Org Mode
    ;; `(org-agenda-structure ((t (:foreground ,link-link))))
@@ -250,6 +258,10 @@
    ;; `(show-paren-mismatch-face ((t (:background ,gruber-darker-red-1))))
    `(transient-key-return ((t (:foreground ,function-link))))
    `(transient-key-stay ((t (:foreground ,type-link))))
+   `(transient-key-exit ((t (:foreground ,trait-link))))
+   `(transient-key ((t (:foreground ,link-link))))
+   `(transient-unreachable ((t (:inherit transient-key-noop))))
+   `(transient-unreachable-key ((t (:inherit transient-key-noop))))
 
    ;; Tuareg
    ;; `(tuareg-font-lock-governing-face ((t (:foreground ,gruber-darker-yellow))))
