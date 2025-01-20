@@ -39,10 +39,11 @@
   :family 'rust-doc)
 
 ;; Colors
-(let ((text-background "#353535")
-      (syntax-foreground "#dddddd")
+(let ((text-bg "#353535")
+      (syntax-fg "#dddddd")             ; main-color
       (syntax-attribute "#ee6868")
-      (syntax-background "#2a2a2a")
+      (syntax-bg "#2a2a2a")
+      ;; (syntax-bg "#3f3f3f")
       (syntax-bool "#ee6868")
       (syntax-comment "#8d8d8b")
       (syntax-doc-comment "#8ca375")
@@ -50,12 +51,12 @@
       (syntax-keyword2 "#769acb")
       (syntax-lifetime "#d97f26")
       (syntax-macro "#3e999f")
+      (syntax-string "#83a300")
       (syntax-number "#83a300")
       (syntax-prelude-ty "#769acb")
       (syntax-prelude-val "#ee6868")
       (syntax-question-mark "#ff9011")
       (syntax-self "#ee6868")
-      (syntax-string "#83a300")
       (line-number "#3b91e2")
       (line-number-highlighted "#0a042f")
 
@@ -64,10 +65,11 @@
       (function-link "#2bab63")
       (link-link"#d2991d")              ; `link-link'
       (setting-input "#2196f3")
-      (side-bar "#505050")
-      (side-bar-link "#fdbf35")
-      (stab-background "#314559")       ; for nightly
-      (target-backgournd "#494a3d")
+      (sidebar "#505050")
+      (sidebar-link "#fdbf35")
+      (sidebar-bg "#505050")
+      (stab-bg "#314559")       ; for nightly
+      (target-bg "#494a3d")
       (text-main "#dddddd")
       (trait-link "#b78cf2")
       (type-link "#2dbfb8")
@@ -158,16 +160,17 @@
 
 
    ;; line numbers
-   `(line-number ((t (:inherit default :foreground ,line-number))))
-   `(line-number-current-line ((t (:inherit line-number :foreground ,line-number-highlighted))))
+   `(line-number ((t (:foreground ,line-number :background ,syntax-bg))))
+   `(line-number-current-line ((t ( :foreground ,line-number
+                                    :background ,line-number-highlighted))))
 
    ;; Magit
    `(magit-branch ((t (:foreground ,link-link))))
    `(magit-branch-remote ((t (:foreground ,type-link))))
-   `(magit-diff-hunk-header ((t (:background ,text-background))))
-   `(magit-diff-file-header ((t (:background ,text-background))))
-   `(magit-section-highlight ((t (:background ,stab-background :forground ,text-main))))
-   `(magit-section-heading ((t (:foreground ,syntax-foreground))))
+   `(magit-diff-hunk-header ((t (:background ,text-bg))))
+   `(magit-diff-file-header ((t (:background ,text-bg))))
+   `(magit-section-highlight ((t (:background ,stab-bg :forground ,text-main))))
+   `(magit-section-heading ((t (:foreground ,syntax-fg))))
    `(magit-bisect-good ((t (:forground ,function-link))))
    `(magit-bisect-bad ((t (:forground ,errors))))
    `(magit-sequence-part ((t (:foreground ,link-link))))
@@ -192,25 +195,29 @@
    ;;                                  :foreground gruber-darker-fg))))
 
    ;; Meow
-   `(meow-insert-cursor ((t (:background ,link-link))))
-   `(meow-beacon-cursor ((t (:background ,link-link))))
-   `(meow-keypad-cursor ((t (:background ,link-link))))
-   `(meow-normal-cursor ((t (:background ,link-link))))
-   `(meow-search-highlight ((t (:background ,stab-background))))
+   `(meow-insert-cursor ((t (:background ,sidebar-link))))
+   `(meow-beacon-cursor ((t (:background ,sidebar-link))))
+   `(meow-keypad-cursor ((t (:background ,sidebar-link))))
+   `(meow-normal-cursor ((t (:background ,sidebar-link))))
+   `(meow-search-highlight ((t (:background ,stab-bg))))
    `(meow-search-indicator ((t (:foreground ,setting-input))))
 
    ;; Mode Line
-   `(mode-line ((t (:background ,stab-background :foreground ,text-main))))
-   `(mode-line-inactive ((t ( :background ,text-background
+   `(mode-line ((t (:background ,sidebar-bg :foreground ,text-main))))
+   `(mode-line-inactive ((t ( :background ,text-bg
                               :foreground ,syntax-comment))))
 
    ;; Org Mode
    ;; `(org-agenda-structure ((t (:foreground ,link-link))))
    ;; `(org-column ((t (:background ,gruber-darker-bg-1))))
-   ;; `(org-column-title ((t (:background ,gruber-darker-bg-1 :underline t :weight bold))))
+   ;; `(org-column-title ((t (:background ,gruber-darker-bg-1 :underline t))))
    ;; `(org-done ((t (:foreground ,gruber-darker-green))))
    ;; `(org-todo ((t (:foreground ,gruber-darker-red-1))))
-   ;; `(org-upcoming-deadline ((t (:foreground ,gruber-darker-yellow))))
+   `(org-level-1 ((t (:inherit default))))
+   `(org-level-2 ((t (:inherit default))))
+   `(org-level-3 ((t (:inherit default))))
+   `(org-level-4 ((t (:inherit default))))
+
 
    `(orderless-match-face-0 ((t (:foreground ,link-link))))
    `(orderless-match-face-1 ((t (:foreground ,function-link))))
@@ -263,7 +270,7 @@
 
    ;; tab-bar
    ;; `(tab-bar ((t (:background ,gruber-darker-bg+1 :foreground ,gruber-darker-bg+4))))
-   ;; `(tab-bar-tab ((t (:background nil :foreground ,gruber-darker-yellow :weight bold))))
+   ;; `(tab-bar-tab ((t (:background nil :foreground ,gruber-darker-yellow))))
    ;; `(tab-bar-tab-inactive ((t (:background nil))))
 
 ;;;;; company-mode
@@ -275,7 +282,7 @@
    ;; `(company-tooltip-common ((t (:foreground ,gruber-darker-green))))
    ;; `(company-tooltip-common-selection ((t (:foreground ,gruber-darker-green))))
    ;; `(company-scrollbar-fg ((t (:background ,gruber-darker-bg-1))))
-   ;; `(company-scrollbar-bg ((t (:background ,text-background))))
+   ;; `(company-scrollbar-bg ((t (:background ,text-bg))))
    ;; `(company-preview ((t (:background ,gruber-darker-green))))
    ;; `(company-preview-common ((t (:foreground ,gruber-darker-green :background ,gruber-darker-bg-1))))
 
@@ -283,10 +290,10 @@
    ;; `(proof-locked-face ((t (:background ,gruber-darker-niagara-2))))
 
    ;; Vertico
-   `(vertico-current ((t (:foreground ,syntax-foreground :background ,stab-background))))
+   `(vertico-current ((t (:foreground ,syntax-fg :background ,stab-bg))))
 
    ;; Which-func
-   `(which-func ((t (:foreground ,function-link :background ,text-background))))
+   `(which-func ((t (:foreground ,function-link :background ,sidebar-bg))))
 
    ;; Which-key
    `(which-key-command-description-face ((t (:foreground ,function-link))))
