@@ -125,54 +125,24 @@
    `(compilation-info ((t (:foreground ,type-link))))
    `(compilation-warning ((t (:foreground ,warning :bold t))))
    `(compilation-error ((t (:foreground ,errors))))
-   `(compilation-mode-line-fail ((t (:foreground ,errors :weight 'bold))))
-   `(compilation-mode-line-exit ((t (:foreground ,type-link :weight 'bold))))
+   `(compilation-mode-line-fail ((t (:foreground ,errors))))
+   `(compilation-mode-line-exit ((t (:foreground ,type-link))))
 
-   ;; ;; Diff
-   ;; `(diff-removed ((t ,(list :foreground gruber-darker-red+1
-   ;;                           :background nil))))
-   ;; `(diff-added ((t ,(list :foreground gruber-darker-green
-   ;;                         :background nil))))
+   ;; Corfu
+   `(corfu-current ((t (:background ,target-bg))))
+
+   ;; Diff
 
    ;; Dired
    `(dired-directory ((t (:foreground ,type-link))))
    `(dired-ignored ((t (:foreground ,syntax-comment))))
 
-   ;; ;; Flymake
-   ;; `(flymake-errline
-   ;;   ((((supports :underline (:style wave)))
-   ;;     (:underline (:style wave :color ,gruber-darker-red)
-   ;;                 :foreground unspecified
-   ;;                 :background unspecified
-   ;;                 :inherit unspecified))
-   ;;    (t (:foreground ,gruber-darker-red :weight bold :underline t))))
-   ;; `(flymake-warnline
-   ;;   ((((supports :underline (:style wave)))
-   ;;     (:underline (:style wave :color ,gruber-darker-yellow)
-   ;;                 :foreground unspecified
-   ;;                 :background unspecified
-   ;;                 :inherit unspecified))
-   ;;    (t (:forground ,gruber-darker-yellow :weight bold :underline t))))
-   ;; `(flymake-infoline
-   ;;   ((((supports :underline (:style wave)))
-   ;;     (:underline (:style wave :color ,gruber-darker-green)
-   ;;                 :foreground unspecified
-   ;;                 :background unspecified
-   ;;                 :inherit unspecified))
-   ;;    (t (:forground ,gruber-darker-green :weight bold :underline t))))
+   ;; Flymake
 
-   ;; Flyspell
-   ;; `(flyspell-incorrect
-   ;;   ((((supports :underline (:style wave)))
-   ;;     (:underline (:style wave :color ,gruber-darker-red) :inherit unspecified))
-   ;;    (t (:foreground ,gruber-darker-red :weight bold :underline t))))
-   ;; `(flyspell-duplicate
-   ;;   ((((supports :underline (:style wave)))
-   ;;     (:underline (:style wave :color ,gruber-darker-yellow) :inherit unspecified))
-   ;;    (t (:foreground ,gruber-darker-yellow :weight bold :underline t))))
+   ;; Flayspell
 
    ;; Highlights
-   `(highlight ((t (:background ,side-bar :foreground ,syntax-foreground))))
+   `(highlight ((t (:background ,sidebar :foreground ,syntax-fg))))
    `(highlight-current-line-face ((t (:inherit highlight))))
    `(highlight-defined-function-name-face ((t (:inherit font-lock-builtin-face))))
 
@@ -326,10 +296,5 @@
                (file-name-as-directory (file-name-directory load-file-name))))
 
 (provide-theme 'rustdoc-dark)
-
-;; Local Variables:
-;; no-byte-compile: t
-;; indent-tabs-mode: nil
-;; End:
 
 ;;; rustdoc-dark-theme.el ends here.
