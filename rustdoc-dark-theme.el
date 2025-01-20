@@ -77,36 +77,42 @@
    'rustdoc-dark
 
    ;; Basic Coloring (or Uncategorized)
-   `(border ((t (:background ,syntax-background :foreground ,text-background))))
-   `(cursor ((t (:background ,syntax-foreground))))
-   `(default ((t (:foreground ,syntax-foreground :background ,syntax-background))))
-   `(fringe ((t (:background nil :foreground ,text-background))))
-   `(vertical-border ((t (:foreground ,text-background))))
+   `(border ((t (:background ,syntax-bg :foreground ,text-bg))))
+   `(cursor ((t (:background ,syntax-fg))))
+   `(completions-common-part ((t (:foreground ,setting-input))))
+   `(default ((t (:foreground ,syntax-fg :background ,syntax-bg))))
+   `(fringe ((t (:background nil :foreground ,text-bg))))
+   `(vertical-border ((t (:foreground ,text-bg))))
    `(link ((t (:foreground ,link-link :background nil :underline t))))
    `(link-visited ((t (:foreground ,link-link :background nil :underline t))))
-   `(match ((t (:background ,text-background :foreground ,link-link))))
+   `(button ((t (:inherit link :box nil))))
+   `(match ((t (:background ,text-bg :foreground ,link-link))))
    `(minibuffer-prompt ((t (:foreground ,link-link))))
-   `(region ((t (:background ,target-backgournd :foreground nil))))
-   `(secondary-selection ((t (:background ,stab-background :foreground nil))))
-   `(trailing-whitespace ((t (:foreground ,syntax-comment
-                                          :background ,syntax-background))))
-   `(tooltip ((t (:background ,target-backgournd :foreground ,syntax-foreground))))
+   `(region ((t (:background ,target-bg :foreground nil))))
+   `(secondary-selection ((t (:background ,stab-bg :foreground nil))))
+   `(trailing-whitespace ((t ( :foreground ,syntax-comment
+                               :background ,syntax-bg))))
+   `(tooltip ((t (:background ,target-bg :foreground ,syntax-fg))))
+
    ;; Font Lock
-   `(font-lock-builtin-face ((t (:foreground ,syntax-prelude-ty))))
+   `(font-lock-builtin-face ((t (:foreground ,syntax-keyword2))))
    `(font-lock-comment-face ((t (:foreground ,syntax-comment))))
    `(font-lock-comment-delimiter-face ((t (:foreground ,syntax-comment))))
-   `(font-lock-constant-face ((t (:foreground ,syntax-foreground))))
+   `(font-lock-constant-face ((t (:foreground ,syntax-macro))))
+   `(font-lock-string-face ((t (:foreground ,syntax-string))))
    `(font-lock-doc-face ((t (:foreground ,syntax-doc-comment))))
    `(font-lock-doc-string-face ((t (:foreground ,syntax-doc-comment))))
+   `(font-lock-number-face ((t (:foreground ,syntax-number))))
    `(font-lock-function-name-face ((t (:inherit nil :foreground ,function-link))))
    `(font-lock-function-call-face ((t (:inherit nil))))
    `(font-lock-keyword-face ((t (:foreground ,syntax-keyword1))))
    `(font-lock-preprocessor-face ((t (:foreground ,syntax-attribute))))
-   `(font-lock-reference-face ((t (:foreground ,syntax-foreground))))
-   `(font-lock-string-face ((t (:foreground ,syntax-string))))
-   `(font-lock-type-face ((t (:foreground ,syntax-foreground))))
-   `(font-lock-variable-name-face ((t (:foreground ,syntax-foreground))))
+   `(font-lock-reference-face ((t (:foreground ,syntax-lifetime))))
+   `(font-lock-type-face ((t (:foreground ,syntax-fg))))
+   `(font-lock-variable-name-face ((t (:foreground ,syntax-fg))))
+   `(font-lock-misc-punctuation-face ((t (:foreground ,syntax-question-mark))))
    `(font-lock-warning-face ((t (:foreground ,warning))))
+
 
    ;; AUCTeX
    `(font-latex-bold-face ((t ())))
@@ -212,20 +218,17 @@
    `(orderless-match-face-3 ((t (:foreground "#ffc3c3"))))
 
    ;; Search
-   ;; `(isearch ((t ,(list :foreground gruber-darker-black
-   ;;                      :background gruber-darker-fg+2))))
-   ;; `(isearch-fail ((t ,(list :foreground gruber-darker-black
-   ;;                           :background gruber-darker-red))))
-   ;; `(isearch-lazy-highlight-face ((t ,(list
-   ;;                                     :foreground gruber-darker-fg+1
-   ;;                                     :background gruber-darker-niagara-1))))
+   `(isearch ((t (:foreground ,sidebar-link :background ,sidebar-bg))))
+   `(lazy-highlight ((t (:foreground nil :background ,sidebar-bg))))
+   `(isearch-fail ((t (:foreground ,syntax-attribute :background ,text-bg))))
+   `(isearch-lazy-highlight-face ((t (:inherit lazy-highlight))))
 
    ;; Sh
    ;; `(sh-quoted-exec ((t (:foreground ,gruber-darker-red+1))))
 
    ;; Show Paren
-   ;; `(show-paren-match-face ((t (:background ,gruber-darker-bg+4))))
-   ;; `(show-paren-mismatch-face ((t (:background ,gruber-darker-red-1))))
+   `(show-paren-match-face ((t (:background steelblue3))))
+   `(show-paren-mismatch-face ((t (:background purple))))
    `(transient-key-return ((t (:foreground ,function-link))))
    `(transient-key-stay ((t (:foreground ,type-link))))
    `(transient-key-exit ((t (:foreground ,trait-link))))
@@ -242,11 +245,11 @@
    ;; `(whitespace-tab ((t ,(list :background gruber-darker-bg
    ;;                             :foreground gruber-darker-bg+1))))
    ;; `(whitespace-hspace ((t ,(list :background gruber-darker-bg
-   ;;                                :foreground text-background))))
-   ;; `(whitespace-line ((t ,(list :background text-background
+   ;;                                :foreground text-bg))))
+   ;; `(whitespace-line ((t ,(list :background text-bg
    ;;                              :foreground gruber-darker-red+1))))
    ;; `(whitespace-newline ((t ,(list :background gruber-darker-bg
-   ;;                                 :foreground text-background))))
+   ;;                                 :foreground text-bg))))
    ;; `(whitespace-trailing ((t ,(list :background gruber-darker-red
    ;;                                  :foreground gruber-darker-red))))
    ;; `(whitespace-empty ((t ,(list :background gruber-darker-yellow
