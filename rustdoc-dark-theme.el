@@ -180,11 +180,13 @@
    `(magit-sequence-part ((t (:foreground ,link-link))))
    `(magit-sequence-stop ((t (:foreground ,type-link))))
    `(magit-reflog-rebase ((t (:foreground ,trait-link))))
+   `(magit-reflog-checkout ((t (:foreground ,setting-input))))
    `(magit-tag ((t (:foreground ,type-link))))
-   `(magit-diff-added    ((t (:foreground ,text-main :background "#0d441a"))))
-   `(magit-diff-removed  ((t (:foreground ,text-main :background "#7a0400"))))
+   `(magit-diff-added-highlight ((t (:foreground ,text-main :background "#325832")))) ;154215
+   `(magit-diff-removed-highlight ((t (:foreground ,text-main :background "#863632"))))
+   `(magit-diff-added    ((t (:foreground ,text-main :background "#325832"))))
+   `(magit-diff-removed  ((t (:foreground ,text-main :background "#863632"))))
    `(magit-log-author ((t (:foreground ,sidebar-link))))
-
    ;; `(magit-log-sha1 ((t (:foreground ,gruber-darker-red+1))))
    ;; `(magit-log-head-label-remote ((t ,(list :foreground gruber-darker-green
    ;;                                          :background gruber-darker-bg+1))))
