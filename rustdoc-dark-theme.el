@@ -43,7 +43,6 @@
       (syntax-fg "#dddddd")             ; main-color
       (syntax-attribute "#ee6868")
       (syntax-bg "#2a2a2a")
-      ;; (syntax-bg "#3f3f3f")
       (syntax-bool "#ee6868")
       (syntax-comment "#8d8d8b")
       (syntax-doc-comment "#8ca375")
@@ -98,8 +97,8 @@
 
    ;; Font Lock
    `(font-lock-builtin-face ((t (:foreground ,syntax-keyword2))))
-   `(font-lock-comment-face ((t (:foreground ,syntax-comment))))
-   `(font-lock-comment-delimiter-face ((t (:foreground ,syntax-comment))))
+   `(font-lock-comment-face ((t (:foreground ,link-link))))
+   `(font-lock-comment-delimiter-face ((t (:foreground ,link-link))))
    `(font-lock-constant-face ((t (:foreground ,syntax-macro))))
    `(font-lock-string-face ((t (:foreground ,syntax-string))))
    `(font-lock-doc-face ((t (:foreground ,syntax-doc-comment))))
