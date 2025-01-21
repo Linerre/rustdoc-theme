@@ -62,17 +62,21 @@
       ;; original e57300
       (errors  "#d93d3d")
       (function-link "#2bab63")
-      (link-link"#d2991d")              ; `link-link'
+      (link-link"#d2991d")
       (setting-input "#2196f3")
       (sidebar "#505050")
       (sidebar-link "#fdbf35")
       (sidebar-bg "#505050")
-      (stab-bg "#314559")       ; for nightly
+      (stab-bg "#314559")               ; for nightly tip background
       (target-bg "#494a3d")
       (text-main "#dddddd")
       (trait-link "#b78cf2")
       (type-link "#2dbfb8")
-      (warning "#ff9124"))
+      (warning "#ff9124")
+
+      ;; misc colors to replace the above wherever appropriate
+      (comment-brown "#b2a695")
+      (zenburn-bg "#3f3f3f"))
 
   (custom-theme-set-faces
    'rustdoc-dark
@@ -165,10 +169,11 @@
 
    ;; Magit
    `(magit-branch ((t (:foreground ,link-link))))
+   `(magit-branch-local  ((t (:foreground ,function-link))))
    `(magit-branch-remote ((t (:foreground ,type-link))))
    `(magit-diff-hunk-header ((t (:background ,text-bg))))
    `(magit-diff-file-header ((t (:background ,text-bg))))
-   `(magit-section-highlight ((t (:background ,stab-bg :forground ,text-main))))
+   `(magit-section-highlight ((t (:background ,target-bg :forground ,text-main))))
    `(magit-section-heading ((t (:foreground ,syntax-fg))))
    `(magit-bisect-good ((t (:forground ,function-link))))
    `(magit-bisect-bad ((t (:forground ,errors))))
@@ -176,9 +181,11 @@
    `(magit-sequence-stop ((t (:foreground ,type-link))))
    `(magit-reflog-rebase ((t (:foreground ,trait-link))))
    `(magit-tag ((t (:foreground ,type-link))))
+   `(magit-diff-added    ((t (:foreground ,text-main :background "#0d441a"))))
+   `(magit-diff-removed  ((t (:foreground ,text-main :background "#7a0400"))))
+   `(magit-log-author ((t (:foreground ,sidebar-link))))
 
    ;; `(magit-log-sha1 ((t (:foreground ,gruber-darker-red+1))))
-   ;; `(magit-log-author ((t (:foreground ,gruber-darker-brown))))
    ;; `(magit-log-head-label-remote ((t ,(list :foreground gruber-darker-green
    ;;                                          :background gruber-darker-bg+1))))
    ;; `(magit-log-head-label-local ((t ,(list :foreground link-link
