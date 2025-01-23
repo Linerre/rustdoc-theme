@@ -229,7 +229,11 @@
    `(org-level-3 ((t (:inherit default))))
    `(org-level-4 ((t (:inherit default))))
 
+   ;; Message, Gnus, and Mu4e
+   `(message-header-name  ((t (:foreground "#66cdaa"))))
+   `(message-header-other ((t (:foreground "#ee9a00"))))
 
+   ;; Orderless
    `(orderless-match-face-0 ((t (:foreground ,link-link))))
    `(orderless-match-face-1 ((t (:foreground ,function-link))))
    `(orderless-match-face-2 ((t (:foreground ,type-link))))
