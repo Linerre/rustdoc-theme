@@ -118,7 +118,6 @@
    `(font-lock-misc-punctuation-face ((t (:foreground ,syntax-question-mark))))
    `(font-lock-warning-face ((t (:foreground ,warning))))
 
-
    ;; AUCTeX
    `(font-latex-bold-face ((t ())))
    `(font-latex-italic-face ((t ())))
@@ -141,17 +140,12 @@
 
    ;; Corfu
    `(corfu-current ((t (:background ,target-bg))))
-
    ;; Diff
-
    ;; Dired
    `(dired-directory ((t (:foreground ,type-link))))
    `(dired-ignored ((t (:foreground ,syntax-comment))))
-
    ;; Flymake
-
    ;; Flayspell
-
    ;; Highlights
    `(highlight ((t (:background ,sidebar :foreground ,syntax-fg))))
    `(highlight-current-line-face ((t (:inherit highlight))))
@@ -201,6 +195,15 @@
    ;;                        :background gruber-darker-bg))))
    ;; `(magit-blame-heading ((t ,(list :background gruber-darker-bg+1
    ;;                                  :foreground gruber-darker-fg))))
+
+   `(markdown-header-face ((t (:inherit default))))
+   `(markdown-header-face-1 ((t (:inherit default))))
+   `(markdown-header-face-2 ((t (:inherit default))))
+   `(markdown-header-face-3 ((t (:inherit default))))
+   `(markdown-header-face-4 ((t (:inherit default))))
+   `(markdown-header-face-5 ((t (:inherit default))))
+   `(markdown-inline-code-face ((t (:foreground ,link-link))))
+   `(markdown-pre-face ((t (:inherit default))))
 
    ;; Meow
    `(meow-insert-cursor ((t (:background ,sidebar-link))))
