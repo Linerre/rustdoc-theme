@@ -284,9 +284,9 @@
    ;;                                          :foreground gruber-darker-brown))))
 
    ;; tab-bar
-   ;; `(tab-bar ((t (:background ,gruber-darker-bg+1 :foreground ,gruber-darker-bg+4))))
-   ;; `(tab-bar-tab ((t (:background nil :foreground ,gruber-darker-yellow))))
-   ;; `(tab-bar-tab-inactive ((t (:background nil))))
+   `(tab-bar ((t (:background ,sidebar-bg :foreground ,syntax-fg :box unspecified))))
+   `(tab-bar-tab ((t (:inherit tab-bar))))
+   `(tab-bar-tab-inactive ((t (:foreground ,syntax-comment :background ,syntax-bg))))
 
 ;;;;; company-mode
    ;; `(company-tooltip ((t (:foreground ,gruber-darker-fg :background ,gruber-darker-bg+1))))
