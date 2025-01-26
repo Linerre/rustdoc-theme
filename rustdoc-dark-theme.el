@@ -240,7 +240,7 @@
 
    ;; Search
    `(isearch ((t (:foreground ,sidebar-link :background ,sidebar-bg))))
-   `(lazy-highlight ((t (:foreground nil :background ,sidebar-bg))))
+   `(lazy-highlight ((t (:foreground unspecified :background ,sidebar-bg))))
    `(isearch-fail ((t (:foreground ,syntax-attribute :background ,text-bg))))
    `(isearch-lazy-highlight-face ((t (:inherit lazy-highlight))))
 
